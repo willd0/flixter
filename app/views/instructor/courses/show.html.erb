@@ -4,6 +4,20 @@
   <% if current_course.image.present? %>
   <%= image_tag current_course.image.to_s, class: 'img-fluid' %>
   <% end %>
+  <script>
+  $(function() {
+    $('.lessons').sortable({
+        update: function( event, ui ) {
+          $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        });
+      }
+      });
+  });
+  </script>
   <br />
     <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning float-right' %>
   <br class="clr" />
@@ -18,9 +32,9 @@
       <li>
         <%= section.title %>
         <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-primary btn-sm' %>
-         <ul>
-          <% section.lessons.each do |lesson| %>
-            <li>
+         <ul class="lessons">
+          <% section.lessons.rank(:row_order).each do |lesson| %>
+            <li data-update-url="<%= instructor_lesson_path(lesson) %>">
               <b><%= lesson.title %></b>
               -
               <%= lesson.subtitle %>
