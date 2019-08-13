@@ -16,6 +16,7 @@ before_action :require_authorized_for_current_course, only: [:show]
   end
   
   def show
+    @section = Section.new  
   end
 
   private
