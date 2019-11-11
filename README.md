@@ -1,4 +1,4 @@
-# Nomster
+# Flixter
 
 Video streaming platfrom that allows users to create an account and set up a course with different sections and lessons that other users can pay for and sign up to. The app consists of the home page where information and links to different sections of the website is displayed, about pages containing information about the development team, career information, and the privacy policy, a dashboard that allows users to see the courses they are enrolled in as well as the courses they have created, a page that lists out all the courses, and individual course pages that allow users to sign up and access the course. Users can create courses by selecting 'Teach a course' and filling out a form. Once a course is created, other users can see the course on the courses page and click the name of the course to go to the individual course page where they can sign up for, and access the course. Once users have access to a course they can select the course lessons where they are directed to a video lesson they can watch.
 
